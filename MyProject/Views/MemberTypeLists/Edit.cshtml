@@ -1,0 +1,66 @@
+﻿@model MemberTypeLists
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<h2>Edit Member Types</h2>
+<hr />
+
+<form asp-action="Edit">
+    <div class="form-border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="MemberTypeName" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="MemberTypeName" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Description" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="Description" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="MemberTypeCosts" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="MemberTypeCosts" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <input asp-for="Active" type="checkbox">&nbsp Active
+                </div>
+            </div>
+
+            <span asp-validation-for="MemberTypeName"></span>
+            <span asp-validation-for="MemberTypeCosts"></span>
+            <span asp-validation-for="Active"></span>
+
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Edit" class="btn btn-sm btn-primary">
+            <a asp-action="Index" class="btn btn-sm btn-success">Back to homepage</a>
+        </div>
+    </div>
+</form>
+

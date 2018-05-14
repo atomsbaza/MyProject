@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<form asp-controller="MemberLists" asp-action="Index" method="get">
+    <br />
+    <h2>Members</h2>
+    <hr />
+
+    <div style="height: 60px">
+        <div class="col-sm-3" style="padding-top: 20px">
+            <a asp-controller="Account" asp-action="Register" class="btn btn-primary" style="width: 200px">
+                <span class="glyphicon glyphicon-plus"></span> &nbsp; Create New Member
+            </a>
+        </div>
+        <div class="col-sm-9">
+            @* search *@
+        </div>
+    </div>
+
+    <hr />
+    <br />
+    <div class="form-border">
+        <table class="table-condensed table-hover">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.FirstName)</th>
+                <th>@Html.DisplayNameFor(m => m.LastName)</th>
+                <th>@Html.DisplayNameFor(m => m.Email)</th>
+                <th>@Html.DisplayNameFor(m => m.Address)</th>
+                <th>@Html.DisplayNameFor(m => m.City)</th>
+                <th>@Html.DisplayNameFor(m => m.PostalCode)</th>
+                <th>@Html.DisplayNameFor(m => m.PhoneNumber)</th>
+                <th>Cards</th>
+                <th>Button</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayTextFor(m => item.FirstName)</td>
+                    <td>@Html.DisplayTextFor(m => item.LastName)</td>
+                    <td>@Html.DisplayTextFor(m => item.Email)</td>
+                    <td>@Html.DisplayTextFor(m => item.Address)</td>
+                    <td>@Html.DisplayTextFor(m => item.City)</td>
+                    <td>@Html.DisplayTextFor(m => item.PostalCode)</td>
+                    <td>@Html.DisplayTextFor(m => item.PhoneNumber)</td>
+                    <td>
+                        <a asp-controller="CardLists" asp-action="Index" asp-route-memberId="@item.Id">
+                            <img src="~/images/Cardsample.png" width="40"/> &nbsp; View Cards
+                        </a>
+                    </td>
+                    @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { MemberTypeId = item.Id })
+                </tr>
+            }
+        </table>
+    </div>
+</form>

@@ -11,9 +11,10 @@ using System;
 namespace MyProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180514090211_addUserProperties")]
+    partial class addUserProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -213,29 +214,13 @@ namespace MyProject.Data.Migrations
 
                     b.Property<bool>("Active");
 
-                    b.Property<string>("Address")
-                        .IsRequired();
-
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<string>("City")
-                        .IsRequired();
-
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<string>("Gender")
-                        .IsRequired();
+                    b.Property<string>("Gender");
 
                     b.Property<int>("IdCard");
 
-                    b.Property<string>("LastName")
-                        .IsRequired();
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired();
-
-                    b.Property<string>("PostalCode")
+                    b.Property<string>("Name")
                         .IsRequired();
 
                     b.HasKey("Id");

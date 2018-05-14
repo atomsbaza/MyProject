@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MemberTypeLists>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br/>
+<h2>Manage Member Types</h2>
+<hr/>
+<form id="memberTypes">
+    <div class="form-border">
+        <p>
+            <a class="btn btn-sm btn-primary" asp-action="Create">Create Member Types</a>
+        </p>
+        <br/>
+    
+        <table id="memberTypesSearch" class="table table-hover table-condensed">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Id)</th>
+                <th>@Html.DisplayNameFor(m => m.MemberTypeName)</th>
+                <th>@Html.DisplayNameFor(m => m.Description)</th>
+                <th>@Html.DisplayNameFor(m => m.MemberTypeCosts)</th>
+                <th>@Html.DisplayNameFor(m => m.Active)</th>
+                <th>Button</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayTextFor(m => item.Id)</td>
+                    <td>@Html.DisplayTextFor(m => item.MemberTypeName)</td>
+                    <td>@Html.DisplayTextFor(m => item.Description)</td>
+                    <td>@Html.DisplayTextFor(m => item.MemberTypeCosts)</td>
+                    <td>@Html.DisplayTextFor(m => item.Active)</td>
+                    @Html.Partial("_TableButtonPartial", new IndividualButtonPartial{ MemberTypeId = item.Id})
+                </tr>
+            }
+        </table>
+    </div>
+</form>
+
+ 
+

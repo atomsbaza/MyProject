@@ -11,9 +11,10 @@ using System;
 namespace MyProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180514052649_FirstUpdateSystem")]
+    partial class FirstUpdateSystem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,10 +136,6 @@ namespace MyProject.Data.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("Address");
-
-                    b.Property<string>("City");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -146,10 +143,6 @@ namespace MyProject.Data.Migrations
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -166,8 +159,6 @@ namespace MyProject.Data.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("PostalCode");
 
                     b.Property<string>("SecurityStamp");
 
@@ -213,29 +204,13 @@ namespace MyProject.Data.Migrations
 
                     b.Property<bool>("Active");
 
-                    b.Property<string>("Address")
-                        .IsRequired();
-
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<string>("City")
-                        .IsRequired();
-
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<string>("Gender")
-                        .IsRequired();
+                    b.Property<string>("Gender");
 
                     b.Property<int>("IdCard");
 
-                    b.Property<string>("LastName")
-                        .IsRequired();
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired();
-
-                    b.Property<string>("PostalCode")
+                    b.Property<string>("Name")
                         .IsRequired();
 
                     b.HasKey("Id");

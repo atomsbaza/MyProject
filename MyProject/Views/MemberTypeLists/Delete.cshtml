@@ -1,0 +1,59 @@
+﻿@model MemberTypeLists
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h2>Delete Member Types</h2>
+<hr />
+
+<form asp-action="Delete">
+    <div class="form-border">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="MemberTypeName" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="MemberTypeName" disabled class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Description" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="Description" disabled class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="MemberTypeCosts" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="MemberTypeCosts" disabled class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <input asp-for="Active" type="checkbox" disabled>&nbsp Active
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            <a asp-action="Index" class="btn btn-sm btn-success">Back to homepage</a>
+        </div>
+    </div>
+</form>
+

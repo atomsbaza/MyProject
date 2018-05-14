@@ -5,8 +5,13 @@
     <UserSecretsId>aspnet-MyProject-E734ADDF-E6D5-4B49-A878-A2540A7BC041</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\ApplicationDbContext.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
+    <PackageReference Include="datataBLES" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" PrivateAssets="All" />

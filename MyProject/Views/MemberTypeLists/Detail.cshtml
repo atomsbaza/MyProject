@@ -1,0 +1,66 @@
+﻿@model MemberTypeLists
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<br />
+<h2>Deatil Member Types</h2>
+<hr />
+
+<form asp-action="Detail">
+    <div class="form-border">
+        <fieldset disabled>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="MemberTypeName" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="MemberTypeName" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Description" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="Description" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="MemberTypeCosts" class="custom-label"></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input asp-for="MemberTypeCosts" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <input asp-for="Active" type="checkbox">&nbsp Active
+                </div>
+            </div>
+
+            <span asp-validation-for="MemberTypeName"></span>
+            <span asp-validation-for="MemberTypeCosts"></span>
+            <span asp-validation-for="Active"></span>
+
+        </div>
+        <br/>
+        </fieldset>
+        <div class="form-group">
+            <a asp-action="Index" class="btn btn-sm btn-success">Back to homepage</a>
+        </div>
+    </div>
+</form>
+
