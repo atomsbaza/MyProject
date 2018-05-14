@@ -1,10 +1,10 @@
-﻿@model MemberTypeLists
+﻿@*@model ApplicationUser
 @{
     ViewData["Title"] = "Detail";
 }
 
 <br />
-<h2>Deatil Member Types</h2>
+<h2>Customer Detail</h2>
 <hr />
 
 <form asp-action="Detail">
@@ -13,29 +13,29 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-3">
-                        <label asp-for="MemberTypeName" class="custom-label"></label>
+                        <label asp-for="FirstName" class="custom-label"></label>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <input asp-for="MemberTypeName" class="form-control">
+                            <input asp-for="FirstName" class="form-control">
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <label asp-for="Description" class="custom-label"></label>
+                        <label asp-for="LastName" class="custom-label"></label>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <input asp-for="Description" class="form-control">
+                            <input asp-for="LastName" class="form-control">
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <label asp-for="MemberTypeCosts" class="custom-label"></label>
+                        <label asp-for="E" class="custom-label"></label>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
@@ -56,5 +56,4 @@
             <a asp-action="Index" class="btn btn-sm btn-success">Back to homepage</a>
         </div>
     </div>
-</form>
-
+</form>*@

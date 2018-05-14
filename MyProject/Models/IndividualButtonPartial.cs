@@ -11,9 +11,7 @@ namespace MyProject.Models
         public string Text { get; set; }
 
         public int? MemberTypeId { get; set; }
-        public int? MemberId { get; set; }
-        public int? CardId { get; set; }
-        public int? Seriverid { get; set; }
+        public string CustomerId { get; set; }
 
         public string ActionParameter
         {
@@ -23,6 +21,11 @@ namespace MyProject.Models
                 if (MemberTypeId != 0 && MemberTypeId != null)
                 {
                     param.Append(String.Format("{0}", MemberTypeId));
+                }
+
+                if (!string.IsNullOrEmpty(CustomerId))
+                {
+                    param.Append(String.Format("{0}", CustomerId));
                 }
 
                 return param.ToString().Substring(0, param.Length);

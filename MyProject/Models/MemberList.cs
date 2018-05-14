@@ -26,6 +26,9 @@ namespace MyProject.Models
         public DateTime BirthDate { get; set; }
 
         [Required]
+        public string Email { get; set; }
+
+        [Required]
         public string Address { get; set; }
 
         [Required]

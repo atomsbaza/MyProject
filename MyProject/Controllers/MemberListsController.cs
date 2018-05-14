@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MyProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyProject.Data;
 
 namespace MyProject.Controllers
@@ -17,10 +18,31 @@ namespace MyProject.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string option = null, string search = null)
         {
-            var user = _db.Members.ToList();
-            return View(user);
+            var users = _db.Users.ToList();
+
+            if (option == "email" && search != null)
+            {
+                users = _db.Users.Where(m => m.Email.ToLower().Contains(search.ToLower())).ToList();
+            }
+            else
+            {
+                if (option == "name" && search != null)
+                {
+                    users = _db.Users.Where(m => m.FirstName.ToLower().Contains(search.ToLower())
+                                                   || m.LastName.ToLower().Contains(search.ToLower())).ToList();
+                }
+                else
+                {
+                    if (option == "phone" && search != null)
+                    {
+                        users = _db.Users.Where(m => m.PhoneNumber.ToLower().Contains(search.ToLower())).ToList();
+                    }
+                   
+                }
+            }
+            return View(users);
         }
 
         public IActionResult Create()
@@ -41,6 +63,32 @@ namespace MyProject.Controllers
 
             return View(memberLists);
         }
+
+        // GET: Detail
+        public async Task<IActionResult> Detail(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ApplicationUser user = await _db.Users.SingleOrDefaultAsync(m => m.Id == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+
+        }
+
+
+
+
+
+
+
 
         protected override void Dispose(bool disposing)
         {
