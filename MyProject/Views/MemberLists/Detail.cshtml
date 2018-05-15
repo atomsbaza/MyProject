@@ -1,4 +1,4 @@
-﻿@*@model ApplicationUser
+﻿@model ApplicationUser
 @{
     ViewData["Title"] = "Detail";
 }
@@ -21,7 +21,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-3">
                         <label asp-for="LastName" class="custom-label"></label>
@@ -32,21 +31,54 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-3">
-                        <label asp-for="E" class="custom-label"></label>
+                        <label asp-for="Email" class="custom-label"></label>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <input asp-for="MemberTypeCosts" class="form-control">
+                            <input asp-for="Email" class="form-control">
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-3">
-                        <input asp-for="Active" type="checkbox">&nbsp Active
+                        <label asp-for="Address" class="custom-label"></label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input asp-for="Address" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label asp-for="City" class="custom-label"></label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input asp-for="City" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label asp-for="PostalCode" class="custom-label"></label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input asp-for="PostalCode" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label asp-for="PhoneNumber" class="custom-label"></label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input asp-for="PhoneNumber" class="form-control">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,4 +88,4 @@
             <a asp-action="Index" class="btn btn-sm btn-success">Back to homepage</a>
         </div>
     </div>
-</form>*@
+</form>

@@ -1,19 +1,22 @@
-﻿@model IEnumerable<MemberTypeLists>
+﻿@using MyProject.Utility
+@using static MyProject.Utility.StaticDetail
+@model IEnumerable<MemberTypeLists>
 @{
     ViewData["Title"] = "Index";
 }
 
-<br/>
+<br />
 <h2>Manage Member Types</h2>
-<hr/>
+<hr />
 <form id="memberTypes">
-    <div class="form-border">
+    <div class="form-group">
         <p>
             <a class="btn btn-sm btn-primary" asp-action="Create">Create Member Types</a>
         </p>
-        <br/>
-    
-        <table id="memberTypesSearch" class="table table-hover table-condensed">
+        <br />
+    </div>
+    <table id="memberTypesSearch" class="table table-hover table-condensed table-responsive">
+        <thead>
             <tr>
                 <th>@Html.DisplayNameFor(m => m.Id)</th>
                 <th>@Html.DisplayNameFor(m => m.MemberTypeName)</th>
@@ -22,6 +25,8 @@
                 <th>@Html.DisplayNameFor(m => m.Active)</th>
                 <th>Edit/Detail/Delete</th>
             </tr>
+        </thead>
+        <tbody>
             @foreach (var item in Model)
             {
                 <tr>
@@ -30,12 +35,13 @@
                     <td>@Html.DisplayTextFor(m => item.Description)</td>
                     <td>@Html.DisplayTextFor(m => item.MemberTypeCosts)</td>
                     <td>@Html.DisplayTextFor(m => item.Active)</td>
-                    @Html.Partial("_TableButtonPartial", new IndividualButtonPartial{ MemberTypeId = item.Id})
+                    @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { MemberTypeId = item.Id })
                 </tr>
             }
-        </table>
-    </div>
+        </tbody>
+    </table>
+
 </form>
 
- 
+
 

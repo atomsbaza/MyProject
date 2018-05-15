@@ -8,68 +8,72 @@
     <br />
     <h2>Members</h2>
     <hr />
-
-    <div style="height: 60px">
-        <div class="col-sm-3" style="padding-top: 20px">
-            <a asp-controller="Account" asp-action="Register" class="btn btn-primary" style="width: 200px">
-                <span class="glyphicon glyphicon-plus"></span> &nbsp; Create New Member
-            </a>
-        </div>
-        <div class="col-sm-9">
-            <div class="row">
-                <div class="col-sm-12 text-right">
-                    <b>Search: </b>
-                    <label class="radio-inline">@Html.RadioButton("option", "name")Name</label>
-                    <label class="radio-inline">@Html.RadioButton("option", "email")Email</label>
-                    <label class="radio-inline">@Html.RadioButton("option", "phone")Phone</label>
+    <div class="form-group">
+        <div style="height: 60px">
+            <div class="col-sm-3" style="padding-top: 20px">
+                <a asp-controller="Account" asp-action="Register" class="btn btn-primary" style="width: 200px">
+                    <span class="glyphicon glyphicon-plus"></span> &nbsp; Create New Member
+                </a>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12 text-right">
+                        <b>Search: </b>
+                        <label class="radio-inline">@Html.RadioButton("option", "name")Name</label>
+                        <label class="radio-inline">@Html.RadioButton("option", "email")Email</label>
+                        <label class="radio-inline">@Html.RadioButton("option", "phone")Phone</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="pull-right">
+                        <button type="submit" name="submit" value="Search" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                        </button>
+                    </div>
+                    <div class="pull-right">
+                        @Html.Editor("search", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="pull-right">
-                    <button type="submit" name="submit" value="Search" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-search"></span> Search
-                    </button>
-                </div>
-                <div class="pull-right">
-                    @Html.Editor("search", new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
         </div>
-    </div>
 
-    <hr />
-    <br />
-    <div class="form-border">
-        <table class="table-condensed table-hover">
-            <tr>
-                <th>@Html.DisplayNameFor(m => m.FirstName)</th>
-                <th>@Html.DisplayNameFor(m => m.LastName)</th>
-                <th>@Html.DisplayNameFor(m => m.Email)</th>
-                <th>@Html.DisplayNameFor(m => m.Address)</th>
-                <th>@Html.DisplayNameFor(m => m.City)</th>
-                <th>@Html.DisplayNameFor(m => m.PostalCode)</th>
-                <th>@Html.DisplayNameFor(m => m.PhoneNumber)</th>
-                <th>Cards</th>
-                <th>Edit/Detail/Delete</th>
-            </tr>
-            @foreach (var item in Model)
-            {
+        <hr />
+        <br />
+        <table class="table-condensed table-hover table-responsive">
+            <thead>
                 <tr>
-                    <td>@Html.DisplayTextFor(m => item.FirstName)</td>
-                    <td>@Html.DisplayTextFor(m => item.LastName)</td>
-                    <td>@Html.DisplayTextFor(m => item.Email)</td>
-                    <td>@Html.DisplayTextFor(m => item.Address)</td>
-                    <td>@Html.DisplayTextFor(m => item.City)</td>
-                    <td>@Html.DisplayTextFor(m => item.PostalCode)</td>
-                    <td>@Html.DisplayTextFor(m => item.PhoneNumber)</td>
-                    <td>
-                        <a asp-controller="CardLists" asp-action="Index" asp-route-memberId="@item.Id">
-                            <img src="~/images/Cardsample.png" width="40" /> &nbsp; View Cards
-                        </a>
-                    </td>
-                    @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { CustomerId = item.Id })
+                    <th>@Html.DisplayNameFor(m => m.FirstName)</th>
+                    <th>@Html.DisplayNameFor(m => m.LastName)</th>
+                    <th>@Html.DisplayNameFor(m => m.Email)</th>
+                    <th>@Html.DisplayNameFor(m => m.Address)</th>
+                    <th>@Html.DisplayNameFor(m => m.City)</th>
+                    <th>@Html.DisplayNameFor(m => m.PostalCode)</th>
+                    <th>@Html.DisplayNameFor(m => m.PhoneNumber)</th>
+                    <th>Cards</th>
+                    <th>Edit/Detail/Delete</th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayTextFor(m => item.FirstName)</td>
+                        <td>@Html.DisplayTextFor(m => item.LastName)</td>
+                        <td>@Html.DisplayTextFor(m => item.Email)</td>
+                        <td>@Html.DisplayTextFor(m => item.Address)</td>
+                        <td>@Html.DisplayTextFor(m => item.City)</td>
+                        <td>@Html.DisplayTextFor(m => item.PostalCode)</td>
+                        <td>@Html.DisplayTextFor(m => item.PhoneNumber)</td>
+                        <td>
+                            <a asp-controller="CardLists" asp-action="Index" asp-route-memberId="@item.Id">
+                                <img src="~/images/Cardsample.png" width="40" /> &nbsp; View Cards
+                            </a>
+                        </td>
+                        @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { CustomerId = item.Id })
+                    </tr>
+                }
+            </tbody>
+
         </table>
     </div>
 </form>
